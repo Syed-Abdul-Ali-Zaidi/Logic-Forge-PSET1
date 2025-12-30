@@ -23,4 +23,3 @@ def calculate_impact(contributions : list):
         impact[j] = left[j-1] * right[j+1]
 
     return impact
-print(calculate_impact([1]))
