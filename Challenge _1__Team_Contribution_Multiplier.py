@@ -6,15 +6,17 @@ def calculate_impact(contributions : list):
 
 # Calculating Left: left[i] contains product of left side of list including itself.
     left = [1] *  n
-    left[0] = contributions[0]
-    for i in range(1,n):
-        left[i] = left[i-1] * contributions[i]
+    left_prod = 1
+    for i in range(n):
+        left_prod *= contributions[i]
+        left[i] = left_prod
 
 # Calculating Right: right[i] contains product of right side of list including itself.
     right = [1] * n
-    right[-1] = contributions[-1]
-    for i in range(n-2,-1,-1):
-        right[i] = right[i+1] * contributions[i]
+    right_prod = 1
+    for i in range(n-1,-1,-1):
+        right_prod *= contributions[i]
+        right[i] = right_prod
 
 # Calculating Impact:
     impact[0] = right[1]
@@ -23,3 +25,13 @@ def calculate_impact(contributions : list):
         impact[j] = left[j-1] * right[j+1]
 
     return impact
+
+# Example 1:
+# Contributions = [1, 2, 3, 4]
+# Impact = calculate_impact(Contributions)
+# print(Impact)
+
+# Example 2:
+# Contributions = [-1, 1, 0, -3, 3]
+# Impact = calculate_impact(Contributions)
+# print(Impact)
