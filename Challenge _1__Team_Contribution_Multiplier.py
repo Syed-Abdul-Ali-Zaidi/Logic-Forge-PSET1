@@ -1,6 +1,6 @@
 def calculate_impact(contributions : list):
     n = len(contributions)
-    if n == 1:
+    if n <= 1:
         return [1]
     impact = [0] * n
 
@@ -35,3 +35,4 @@ def calculate_impact(contributions : list):
 # Contributions = [-1, 1, 0, -3, 3]
 # Impact = calculate_impact(Contributions)
 # print(Impact)
+
